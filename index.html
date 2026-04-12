@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Indra Studio Floral</title>
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#F8F6F0" id="meta-theme-color">
+    <link rel="apple-touch-icon" href="Assets/Logo.jpg">
+    <!-- Open Graph for sharing (WhatsApp, FB, etc.) -->
+    <meta property="og:title" content="Indra Studio Floral | VCard">
+    <meta property="og:description" content="Diseño Floral de Autor. Tarjeta de Contacto Móvil e Inteligente.">
+    <meta property="og:image" itemprop="image" content="https://indra-studio-floral.vercel.app/Assets/SQUARE_THUMBNAIL.jpg">
+    <meta property="og:image:secure_url" itemprop="image" content="https://indra-studio-floral.vercel.app/Assets/SQUARE_THUMBNAIL.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <!-- WhatsApp specific tags -->
+    <meta itemprop="name" content="Indra Studio Floral | VCard">
+    <meta itemprop="description" content="Diseño Floral de Autor. Tarjeta de Contacto Móvil e Inteligente.">
+    <meta itemprop="image" content="https://indra-studio-floral.vercel.app/Assets/SQUARE_THUMBNAIL.jpg">
+    <meta property="og:image:width" content="256">
+    <meta property="og:image:height" content="256">
+    <meta property="og:url" content="https://indra-studio-floral.vercel.app">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Indra Studio Floral">
+    <meta property="fb:app_id" content="966242223397117">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <!-- QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <img src="Assets/Logo.jpg" alt="Indra Studio Floral Logo" class="splash-logo">
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle fade-in-up" style="transition-delay: 0.1s;" id="theme-btn" aria-label="Cambiar tema">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <div class="app-container">
+        <!-- Header / Cover Image -->
+        <header class="hero" id="hero">
+            <div class="hero-bg" style="background-image: url('Assets/bg.png');"></div>
+            <div class="hero-overlay"></div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-card">
+            <div class="profile-wrapper fade-in-up">
+                <img src="Assets/Logo.jpg" alt="Indra Studio Floral Logo" class="profile-img">
+            </div>
+
+            <div class="header-text fade-in-up" style="transition-delay: 0.1s;">
+                <h1>Indra Studio Floral</h1>
+                <p class="subtitle">Diseño Floral de Autor</p>
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i> Estudio Floral · Citas Previas
+                </div>
+            </div>
+
+            <!-- Action Buttons Row 1 -->
+            <div class="primary-actions fade-in-up" style="transition-delay: 0.2s;">
+                <button class="btn btn-save" onclick="downloadVCard()">
+                    <i class="fa-solid fa-user-plus"></i> Guardar Contacto
+                </button>
+                <button class="btn btn-inquiry" id="btn-inquiry">
+                    <i class="fa-solid fa-envelope-open-text"></i> Cotizar
+                </button>
+            </div>
+
+            <!-- Action Buttons Row 2 -->
+            <div class="secondary-actions fade-in-up" style="transition-delay: 0.25s;">
+                <button class="btn-icon" id="btn-share" aria-label="Compartir">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+                <button class="btn-icon" id="btn-qr" aria-label="Código QR">
+                    <i class="fa-solid fa-qrcode"></i>
+                </button>
+                <a href="https://wa.me/522282393575" target="_blank" class="btn-icon btn-wa-icon" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+
+            <p class="bio fade-in-up" style="transition-delay: 0.3s;">
+                Creamos experiencias botánicas memorables y arreglos florales curados con pasión, arte y detalle. Elevamos tus momentos más especiales.
+            </p>
+
+            <!-- Social Links Grid -->
+            <div class="social-grid fade-in-up" style="transition-delay: 0.4s;">
+                <a href="https://www.instagram.com/indra_studio_floral" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.tiktok.com/" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-tiktok"></i>
+                    <span>TikTok</span>
+                </a>
+                <a href="https://indra-studio-floral-web.vercel.app" target="_blank" class="social-btn" style="grid-column: span 2;">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>Sitio Web</span>
+                </a>
+            </div>
+
+            <!-- Seasonal Flower / Canva Embed -->
+            <section class="seasonal-card fade-in-up" id="seasonal-section" style="transition-delay: 0.45s; display: block; overflow: hidden; position: relative;">
+                <!-- Etiqueta sobre el embed -->
+                <div style="background: var(--card-bg); padding: 15px 20px; border-bottom: 1px solid var(--border-color); text-align: center;">
+                    <span class="seasonal-badge">Flor de Temporada</span>
+                </div>
+                
+                <!-- Canva Iframe Container -->
+                <div style="position: relative; width: 100%; height: 0; padding-top: 100%; /* Relación de aspecto cuadrada 1:1, puedes cambiar a 141% para vertical */ overflow: hidden; pointer-events: none;">
+                    <iframe 
+                        loading="lazy" 
+                        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0; pointer-events: none;"
+                        src="https://www.canva.com/design/DAHEQZkmnZE/f_EMuXRHZt28GoFaiAk0Xw/view?embed" 
+                        allowfullscreen="allowfullscreen" 
+                        allow="fullscreen">
+                    </iframe>
+                </div>
+                <!-- Canva Watermark / Link oculto -->
+                <a href="https://www.canva.com/" target="_blank" rel="noopener" style="position: absolute; bottom: 5px; right: 5px; font-size: 0.6rem; color: rgba(0,0,0,0.1); text-decoration: none;">Diseñado en Canva</a>
+            </section>
+
+            <!-- Services / Expertise -->
+            <section class="services-section fade-in-up" style="transition-delay: 0.5s;">
+                <h2>Especialidades</h2>
+                <div class="services-wrapper">
+                    <div class="service-item">
+                        <i class="fa-solid fa-leaf"></i>
+                        <span>Bodas y Eventos</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-gift"></i>
+                        <span>Arreglos de Regalo</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-seedling"></i>
+                        <span>Suscripción Floral</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Carousel -->
+            <section class="testimonials-section fade-in-up" style="transition-delay: 0.55s;">
+                <h2>Reseñas</h2>
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <p class="testimonial-text">"Indra Studio transformó mi boda en una obra de arte. Su ojo para el detalle y la paleta de colores es inigualable."</p>
+                            <p class="testimonial-author">— Sofía & Andrés</p>
+                        </div>
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <p class="testimonial-text">"Los arreglos más hermosos, cada flor elegida con un propósito. Parecen salidos de una revista editorial."</p>
+                            <p class="testimonial-author">— Productora M.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery -->
+            <section class="gallery-section fade-in-up" style="transition-delay: 0.6s;">
+                <h2>Portafolio</h2>
+                <div class="masonry-gallery">
+                    <div class="gallery-item interactive-img" data-src="Assets/gallery1.png">
+                        <img src="Assets/gallery1.png" alt="Diseño Floral 1" loading="lazy">
+                    </div>
+                    <div class="gallery-item interactive-img" data-src="Assets/gallery2.png">
+                        <img src="Assets/gallery2.png" alt="Diseño Floral 2" loading="lazy">
+                    </div>
+                    <div class="gallery-item interactive-img" data-src="Assets/bg.png">
+                        <img src="Assets/bg.png" alt="Diseño Floral 3" loading="lazy">
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Diseñado con ♥ por Indra Studio Floral</p>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Image Viewer Modal -->
+    <div id="image-modal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <!-- QR Code Modal -->
+    <div id="qr-modal" class="modal qr-modal-wrapper">
+        <div class="modal-box">
+            <span class="close-modal">&times;</span>
+            <h2 style="margin-bottom: 20px; font-family: var(--font-heading);">Mi Código QR</h2>
+            <div id="qrcode"></div>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-muted);">Escanea para ver mi tarjeta</p>
+        </div>
+    </div>
+
+    <!-- Inquiry Form Modal -->
+    <div id="inquiry-modal" class="modal inquiry-modal-wrapper">
+        <div class="modal-box form-box">
+            <span class="close-modal">&times;</span>
+            <h2 style="margin-bottom: 10px; font-family: var(--font-heading);">Cotizar Servicio</h2>
+            <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-muted); text-align: center;">Déjanos los detalles, platiquemos por WhatsApp.</p>
+            <form id="inquiry-form">
+                <div class="form-group">
+                    <label for="event-type">Tipo de Servicio</label>
+                    <select id="event-type" required>
+                        <option value="Boda">Boda</option>
+                        <option value="Evento Social">Evento Social</option>
+                        <option value="Arreglo de Regalo">Arreglo de Regalo</option>
+                        <option value="Suscripción">Suscripción Floral</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="event-date">Fecha Estimada</label>
+                    <input type="date" id="event-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="event-budget">Presupuesto Estimado ($MXN)</label>
+                    <select id="event-budget">
+                        <option value="Menos de $1,000">Menos de $1,000</option>
+                        <option value="$1,000 - $5,000">$1,000 - $5,000</option>
+                        <option value="$5,000 - $20,000">$5,000 - $20,000</option>
+                        <option value="Más de $20,000">Más de $20,000</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="event-details">Más Detalles</label>
+                    <textarea id="event-details" rows="3" placeholder="Cuéntanos un poco de la visión..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-save" style="width: 100%;"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+<!-- TREZE SIGNATURE -->
+<a href="https://wa.me/522214092478?text=Hola%20Treze%20Labs%2C%20me%20gustar%C3%ADa%20solicitar%20el%20desarrollo%20de%20un%20sistema%20profesional." target="_blank" style="display: flex; justify-content: center; text-decoration: none; margin-top: 24px; margin-bottom: 24px; opacity: 0.6; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.6'">
+    <img src="assets/footer.png" alt="Ingeniería Digital por Treze Labs" style="max-height: 38px; object-fit: contain; filter: brightness(0);">
+</a>
+
+</body>
+</html>

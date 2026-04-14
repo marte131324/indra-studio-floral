@@ -12,7 +12,7 @@
     console.log("%c⚠️ ALERTA DE PROPIEDAD INTELECTUAL", "color: #ef4444; font-size: 16px; font-weight: bold;");
     
     // Domain Lock (Anti-Clonación)
-    const allowedDomains = ["indra-studio-floral-web.vercel.app", "localhost", "127.0.0.1"];
+    const allowedDomains = ["indra-studio-floral-web.vercel.app", "indra-studio-floral.vercel.app", "localhost", "127.0.0.1"];
     const currentDomain = window.location.hostname;
     
     if (allowedDomains.indexOf(currentDomain) === -1 && currentDomain !== "") {

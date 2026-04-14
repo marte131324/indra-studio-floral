@@ -4,32 +4,32 @@
     <meta charset="UTF-8">
     <title>Infraestructura de Seguridad | Indra Studio Floral</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@1,600&display=swap');
         * { margin:0; padding:0; box-sizing:border-box; }
         @page { size: letter; margin: 2cm 2.5cm; }
         body { font-family:'Inter',sans-serif; color:#1e293b; line-height:1.7; padding:40px 50px; max-width:850px; margin:0 auto; }
-        .header { border-bottom:3px solid #b59b8d; padding-bottom:18px; margin-bottom:30px; display:flex; justify-content:space-between; align-items:flex-end; }
-        .header h1 { font-size:1.6rem; font-weight:800; color:#2c1810; }
-        .header .sub { font-size:0.8rem; color:#64748b; }
-        .badge { display:inline-block; background:#b59b8d; color:white; padding:4px 12px; border-radius:20px; font-size:0.7rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom: 5px; }
-        h2 { font-size:1.15rem; font-weight:700; color:#b59b8d; margin:28px 0 12px; padding-bottom:6px; border-bottom:1px solid #e2e8f0; }
+        .header { border-bottom:3px solid #1a1f1a; padding-bottom:18px; margin-bottom:30px; display:flex; justify-content:space-between; align-items:flex-end; }
+        .header h1 { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:600; font-style:italic; color:#1a1f1a; margin-top:8px; }
+        .header .sub { font-size:0.8rem; color:#64748b; font-weight:500; text-transform:uppercase; letter-spacing:1px; }
+        .badge { display:inline-block; background:#1a1f1a; color:#b59b8d; padding:4px 12px; border-radius:20px; font-size:0.7rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom: 5px; box-shadow: 0 4px 10px rgba(26, 31, 26, 0.15); }
+        h2 { font-size:1.15rem; font-weight:700; color:#1a1f1a; margin:32px 0 12px; padding-bottom:6px; border-bottom:1px solid #e2e8f0; }
         h3 { font-size:0.95rem; font-weight:700; color:#334155; margin:18px 0 8px; }
         p, li { font-size:0.88rem; color:#475569; }
         ul, ol { padding-left:22px; margin:8px 0; }
         li { margin:6px 0; }
-        .section-card { background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px 24px; margin:16px 0; page-break-inside:avoid; }
-        .section-card h3 { margin-top:0; color:#b59b8d; }
+        .section-card { background:#fafaf9; border:1px solid #e7e5e4; border-radius:12px; padding:20px 24px; margin:16px 0; page-break-inside:avoid; border-left: 4px solid #b59b8d; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .section-card h3 { margin-top:0; color:#1a1f1a; }
         table { width:100%; border-collapse:collapse; margin:12px 0; }
-        th { background:#f1f5f9; padding:10px 14px; text-align:left; font-size:0.8rem; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; }
-        td { padding:10px 14px; border-bottom:1px solid #f1f5f9; font-size:0.84rem; }
-        td:first-child { font-weight:600; color:#334155; }
-        .active { color:#22c55e; font-weight:700; }
-        .note { background:#fdf6f0; border-left:4px solid #b59b8d; padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:0.84rem; color:#78350f; }
+        th { background:#f5f5f4; padding:10px 14px; text-align:left; font-size:0.8rem; font-weight:700; color:#44403c; border-bottom:2px solid #d6d3d1; }
+        td { padding:10px 14px; border-bottom:1px solid #f5f5f4; font-size:0.84rem; color:#57534e; }
+        td:first-child { font-weight:600; color:#292524; }
+        .active { color:#16a34a; font-weight:700; }
+        .note { background:#fafaf9; border-left:4px solid #b59b8d; padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:0.84rem; color:#57534e; }
         .danger { background:#fef2f2; border-left:4px solid #ef4444; padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:0.84rem; color:#991b1b; }
         .tip { background:#f0fdf4; border-left:4px solid #22c55e; padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:0.84rem; color:#166534; }
-        code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:0.82rem; color:#b59b8d; }
+        code { background:#f5f5f4; border:1px solid #e7e5e4; padding:2px 6px; border-radius:4px; font-size:0.82rem; color:#1a1f1a; }
         .footer { margin-top:40px; padding-top:16px; border-top:2px solid #e2e8f0; font-size:0.75rem; color:#94a3b8; text-align:center; }
-        @media print { body { padding:0; } .section-card { break-inside:avoid; } }
+        @media print { body { padding:0; } .section-card { break-inside:avoid; box-shadow:none; } }
     </style>
 </head>
 <body>

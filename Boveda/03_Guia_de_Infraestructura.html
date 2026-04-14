@@ -2,36 +2,34 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Guía de Infraestructura | Fiore de Enero</title>
+    <title>Infraestructura de Seguridad | Indra Studio Floral</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
         * { margin:0; padding:0; box-sizing:border-box; }
         @page { size: letter; margin: 2cm 2.5cm; }
         body { font-family:'Inter',sans-serif; color:#1e293b; line-height:1.7; padding:40px 50px; max-width:850px; margin:0 auto; }
-        .header { border-bottom:3px solid #0e86b0; padding-bottom:18px; margin-bottom:30px; display:flex; justify-content:space-between; align-items:flex-end; }
-        .header h1 { font-size:1.6rem; font-weight:800; color:#042d3d; }
+        .header { border-bottom:3px solid #b59b8d; padding-bottom:18px; margin-bottom:30px; display:flex; justify-content:space-between; align-items:flex-end; }
+        .header h1 { font-size:1.6rem; font-weight:800; color:#2c1810; }
         .header .sub { font-size:0.8rem; color:#64748b; }
-        .badge { display:inline-block; background:#0e86b0; color:white; padding:4px 12px; border-radius:20px; font-size:0.7rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom: 5px; }
-        h2 { font-size:1.15rem; font-weight:700; color:#0e86b0; margin:28px 0 12px; padding-bottom:6px; border-bottom:1px solid #e2e8f0; }
+        .badge { display:inline-block; background:#b59b8d; color:white; padding:4px 12px; border-radius:20px; font-size:0.7rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom: 5px; }
+        h2 { font-size:1.15rem; font-weight:700; color:#b59b8d; margin:28px 0 12px; padding-bottom:6px; border-bottom:1px solid #e2e8f0; }
         h3 { font-size:0.95rem; font-weight:700; color:#334155; margin:18px 0 8px; }
         p, li { font-size:0.88rem; color:#475569; }
         ul, ol { padding-left:22px; margin:8px 0; }
         li { margin:6px 0; }
         .section-card { background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px 24px; margin:16px 0; page-break-inside:avoid; }
-        .section-card h3 { margin-top:0; color:#0e86b0; }
-        .tree { font-family:'Courier New', monospace; background:#0f172a; color:#94a3b8; padding:20px 24px; border-radius:12px; font-size:0.82rem; line-height:1.9; margin:16px 0; }
-        .tree .folder { color:#22d3ee; font-weight:700; }
-        .tree .file { color:#a5f3fc; }
-        .tree .desc { color:#64748b; font-style:italic; }
-        .tree .critical { color:#f97316; font-weight:700; }
+        .section-card h3 { margin-top:0; color:#b59b8d; }
+        table { width:100%; border-collapse:collapse; margin:12px 0; }
+        th { background:#f1f5f9; padding:10px 14px; text-align:left; font-size:0.8rem; font-weight:700; color:#475569; border-bottom:2px solid #e2e8f0; }
+        td { padding:10px 14px; border-bottom:1px solid #f1f5f9; font-size:0.84rem; }
+        td:first-child { font-weight:600; color:#334155; }
+        .active { color:#22c55e; font-weight:700; }
+        .note { background:#fdf6f0; border-left:4px solid #b59b8d; padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:0.84rem; color:#78350f; }
+        .danger { background:#fef2f2; border-left:4px solid #ef4444; padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:0.84rem; color:#991b1b; }
         .tip { background:#f0fdf4; border-left:4px solid #22c55e; padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:0.84rem; color:#166534; }
-        .note { background:#eff6ff; border-left:4px solid #0e86b0; padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0; font-size:0.84rem; color:#1e40af; }
-        table { width:100%; border-collapse:collapse; margin:14px 0; font-size:0.84rem; }
-        th { background:#0e86b0; color:white; padding:10px 14px; text-align:left; font-weight:600; }
-        td { padding:10px 14px; border-bottom:1px solid #e2e8f0; }
-        tr:nth-child(even) td { background:#f8fafc; }
+        code { background:#f1f5f9; padding:2px 6px; border-radius:4px; font-size:0.82rem; color:#b59b8d; }
         .footer { margin-top:40px; padding-top:16px; border-top:2px solid #e2e8f0; font-size:0.75rem; color:#94a3b8; text-align:center; }
-        @media print { body { padding:0; } .section-card, .tree { break-inside:avoid; } }
+        @media print { body { padding:0; } .section-card { break-inside:avoid; } }
     </style>
 </head>
 <body>
@@ -39,8 +37,8 @@
     <div class="header">
         <div>
             <span class="badge">Documento 3 de 3</span>
-            <h1>⚙️ Infraestructura y Arquitectura</h1>
-            <div class="sub">Fiore de Enero — Detalles Técnicos del despliegue</div>
+            <h1>🔒 Infraestructura de Seguridad</h1>
+            <div class="sub">Indra Studio Floral — Arquitectura Técnica y Blindaje</div>
         </div>
         <div style="text-align:right;">
             <div style="font-size:0.75rem; color:#94a3b8;">Treze Labs</div>
@@ -48,49 +46,77 @@
         </div>
     </div>
 
-    <p>La VCard ha pasado de ser un render HTML simple, a una Arquitectura completa "Desacoplada" (Headless Front-end comunicándose con Google Apps Script).</p>
+    <p>Este documento detalla la arquitectura técnica, las capas de seguridad implementadas y los protocolos de mantenimiento del ecosistema digital de Indra Studio Floral.</p>
 
+    <h2>🏗 Arquitectura del Sistema</h2>
     <div class="section-card">
-        <h3>Estructura del Proyecto Entregable</h3>
-        <p>Tu proyecto cuenta con los siguientes componentes principales compilados y minificados para máximo rendimiento:</p>
-        
-        <div class="tree">
-            <div><span class="folder">fiore-de-enero/</span> <span class="desc"># Proyecto Raíz Desplegado</span></div>
-            <div style="margin-left: 20px;"><span class="file">index.html</span> <span class="desc"># Core principal público</span></div>
-            <div style="margin-left: 20px;"><span class="file">style.css</span> <span class="desc"># Estilos con CSS variables Dark/Gold</span></div>
-            <div style="margin-left: 20px;"><span class="file">script.js</span> <span class="desc"># Motor de UX e iterador del catálogo</span></div>
-            <div style="margin-left: 20px;"><span class="folder">admin/</span> <span class="critical"># Panel Privado (NO SE DEBE RENOMBRAR)</span></div>
-            <div style="margin-left: 40px;"><span class="file">index.html</span> <span class="desc"># Dashboard administrativo UI (PIN GATE SHA-256)</span></div>
-            <div style="margin-left: 40px;"><span class="file">app.js</span> <span class="desc"># Controlador fetch PUT/POST para sheets (Token)</span></div>
-            <div style="margin-left: 20px;"><span class="file">vercel.json</span> <span class="desc"># Security Headers (Clickjacking, XSS)</span></div>
-            <div style="margin-left: 20px;"><span class="file">README_DATABASE_SETUP.md</span> <span class="desc"># Backend Source (Script)</span></div>
-        </div>
+        <h3>Stack Tecnológico</h3>
+        <table>
+            <tr><th>Componente</th><th>Tecnología</th><th>Estado</th></tr>
+            <tr><td>Frontend (VCard)</td><td>HTML5 + CSS3 + Vanilla JS</td><td class="active">● Activo</td></tr>
+            <tr><td>Command Center</td><td>Panel Admin con PIN SHA-256</td><td class="active">● Activo</td></tr>
+            <tr><td>Backend (DB)</td><td>Google Sheets + Apps Script Webhook</td><td class="active">● Activo</td></tr>
+            <tr><td>Hosting / CDN</td><td>Vercel Edge Network (Global)</td><td class="active">● Activo</td></tr>
+            <tr><td>Repositorio</td><td>GitHub (marte131324/indra-studio-floral)</td><td class="active">● Activo</td></tr>
+            <tr><td>Cotizador Visual</td><td>WhatsApp API + URL de imagen inyectada</td><td class="active">● Activo</td></tr>
+        </table>
+    </div>
+
+    <h2>🛡 Capas de Seguridad</h2>
+    <div class="section-card">
+        <h3>Headers HTTP de Protección</h3>
+        <table>
+            <tr><th>Header</th><th>Valor</th><th>Protección</th></tr>
+            <tr><td><code>X-Content-Type-Options</code></td><td>nosniff</td><td>Previene MIME sniffing</td></tr>
+            <tr><td><code>X-Frame-Options</code></td><td>SAMEORIGIN</td><td>Bloquea iframes maliciosos</td></tr>
+            <tr><td><code>X-XSS-Protection</code></td><td>1; mode=block</td><td>Bloquea scripts inyectados</td></tr>
+            <tr><td><code>Referrer-Policy</code></td><td>strict-origin-when-cross-origin</td><td>Controla datos de referencia</td></tr>
+            <tr><td><code>Permissions-Policy</code></td><td>camera=(), microphone=(), geolocation=()</td><td>Bloquea acceso a hardware</td></tr>
+            <tr><td><code>HSTS</code></td><td>max-age=63072000; includeSubDomains; preload</td><td>Fuerza HTTPS permanente</td></tr>
+        </table>
     </div>
 
     <div class="section-card">
-        <h3>Infraestructura de Seguridad (Fortaleza Treze)</h3>
+        <h3>Protecciones Adicionales</h3>
         <ul>
-            <li><strong>Security Headers en Edge:</strong> Vercel inyecta automáticamente cabeceras como <code>X-Frame-Options: SAMEORIGIN</code> y <code>X-XSS-Protection</code> para evitar que bots clonen tu sitio o lo incrusten en otras páginas (Clickjacking).</li>
-            <li><strong>Despacho Seguro (Webhook Token):</strong> Solo tu panel administrativo posee la llave secreta para escribir en Firebase/Google Sheets. Si los hackers intentan enviar peticiones <code>POST</code> directas, serán rechazados.</li>
-            <li><strong>Criptografía en Cliente:</strong> El código PIN (`2026`) está hasheado criptográficamente (SHA-256) en el frontend. Si se inspecciona el código, solo se verá el hash, nunca la contraseña en texto plano.</li>
+            <li><strong>Domain Lock (Anti-Clonación):</strong> El código JavaScript incluye un verificador de dominio. Si alguien copia los archivos y los aloja en otro dominio, la VCard mostrará "ACCESO DENEGADO" en lugar del contenido.</li>
+            <li><strong>PIN Gate SHA-256:</strong> El acceso al Command Center requiere un PIN de 4 dígitos hasheado con SHA-256. No se almacena en texto plano.</li>
+            <li><strong>Service Worker (PWA):</strong> La VCard funciona como una Progressive Web App, permitiendo una experiencia nativa en dispositivos móviles con caché inteligente.</li>
         </ul>
     </div>
-    
+
+    <h2>📋 Inventario de Archivos</h2>
     <div class="section-card">
-        <h3>Hosting, Costos Cero y Arquitectura Severless</h3>
-        <ul>
-            <li><strong>Frontend CDN:</strong> Desplegado mediante Github y la arquitectura Global Edge de Vercel. <em>(Sin mantenimiento de Hosting, SSL forzado, HSTS, 99.9% up-time)</em>.</li>
-            <li><strong>Base de Datos y Webhook (Backend):</strong> El catálogo, descripciones de platillos y configuración es orquestada en Google Apps Script a través de Google Sheets, la conexión se realiza gracias a una petición <code>HTTP(S) async-fetch no-cors</code>. Coste y límite mensual de despliegues en servidores back-end convencionales eludidos estratégicamente.</li>
-            <li><strong>Alojamiento Multimedia:</strong> Gráficos estáticos integrados; banners de promoción interactivos o Canva iframes optimizados.</li>
-        </ul>
+        <h3>Estructura del Repositorio</h3>
+        <table>
+            <tr><th>Archivo / Carpeta</th><th>Función</th></tr>
+            <tr><td><code>index.html</code></td><td>VCard pública principal</td></tr>
+            <tr><td><code>style.css</code></td><td>Estilos y diseño visual</td></tr>
+            <tr><td><code>script.js</code></td><td>Lógica, catálogo, galería y cotizador</td></tr>
+            <tr><td><code>admin/</code></td><td>Command Center completo</td></tr>
+            <tr><td><code>Boveda/</code></td><td>Portal de entrega (este sitio)</td></tr>
+            <tr><td><code>Assets/</code></td><td>Logo, portada, 38 fotos del portafolio</td></tr>
+            <tr><td><code>sw.js</code></td><td>Service Worker para PWA</td></tr>
+            <tr><td><code>manifest.json</code></td><td>Manifiesto de la app progresiva</td></tr>
+            <tr><td><code>vercel.json</code></td><td>Configuración de seguridad y routing</td></tr>
+        </table>
+    </div>
+
+    <h2>🔄 Protocolos de Mantenimiento</h2>
+    <div class="tip">
+        <strong>Mantenimiento Cero:</strong> El ecosistema fue diseñado para operar de forma autónoma. Los cambios de catálogo, precios y horarios se hacen desde el Command Center sin tocar código.
+    </div>
+
+    <div class="danger">
+        <strong>🚨 Advertencia Crítica:</strong> NO modifiques archivos del código fuente directamente (script.js, style.css, index.html) sin supervisión de Treze Labs. Una edición incorrecta puede romper el Domain Lock, el cotizador de WhatsApp o la sincronización con Google Sheets.
     </div>
 
     <div class="note">
-        El panel administrativo en la carpeta <code>/admin</code> permite editar productos en la VCard. La Bóveda Google Sheet funge solo como receptor.
+        <strong>Soporte Post-Entrega:</strong> Cualquier modificación técnica debe solicitarse a través de Treze Labs vía WhatsApp. Se ofrece un esquema transparente de intervenciones: Sencillas ($200 MXN) y Avanzadas ($500 MXN). Ver tabla de precios en la Bóveda.
     </div>
 
     <div class="footer">
-        FIORE DE ENERO — Documentación de Infraestructura &copy; 2026 Treze Labs<br>
+        INDRA STUDIO FLORAL — Documentación de Entrega &copy; 2026 Treze Labs<br>
         Este documento es confidencial y exclusivo para el cliente.
     </div>
 

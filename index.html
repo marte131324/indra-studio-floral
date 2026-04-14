@@ -55,23 +55,38 @@
     </button>
 
     <div class="app-container">
+        <!-- Global Banner (Dynamic) -->
+        <div id="global-banner" style="display:none; position: relative; background: rgba(26, 31, 26, 0.85); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--secondary-color); text-align: center; padding: 10px 20px; font-weight: 500; font-family: var(--font-body); font-size: 0.85rem; letter-spacing: 1.5px; z-index: 100; border-bottom: 1px solid rgba(203, 174, 157, 0.15);"></div>
+
         <!-- Header / Cover Image -->
         <header class="hero" id="hero">
-            <div class="hero-bg" style="background-image: url('Assets/bg.png');"></div>
+            <div class="hero-bg" style="background-image: url('Assets/INDRA\ FOTOS/PORTADA.jpeg');"></div>
             <div class="hero-overlay"></div>
         </header>
 
         <!-- Main Content -->
         <main class="main-card">
+            <!-- Header Profile Section -->
             <div class="profile-wrapper fade-in-up">
-                <img src="Assets/Logo.jpg" alt="Indra Studio Floral Logo" class="profile-img">
+                <div class="profile-ring">
+                    <img src="Assets/Logo.jpg" alt="Indra Floral Studio Logo" class="profile-img">
+                </div>
             </div>
 
             <div class="header-text fade-in-up" style="transition-delay: 0.1s;">
                 <h1>Indra Studio Floral</h1>
                 <p class="subtitle">Diseño Floral de Autor</p>
+                
+                <!-- Status Badge -->
+                <div id="store-status-badge" style="display:inline-flex; align-items:center; gap:6px; margin-top:8px; margin-bottom:10px; padding: 4px 10px; border-radius: 20px; background: rgba(0,0,0,0.05); border: 1px solid rgba(0,0,0,0.05); font-size: 0.75rem; letter-spacing: 1px; color: var(--text-muted); font-family: var(--font-body); text-transform: uppercase;">
+                    <div id="store-status-dot" style="width:6px; height:6px; border-radius:50%; background:#4ade80;"></div>
+                    <span id="store-status-text">Abierto Hoy</span>
+                </div>
+                
                 <div class="location">
-                    <i class="fa-solid fa-location-dot"></i> Estudio Floral · Citas Previas
+                    <a href="https://maps.app.goo.gl/7Btba92HnQcmpUHfA" target="_blank" style="color: inherit; text-decoration: underline; text-decoration-color: var(--accent-light);">
+                        <i class="fa-solid fa-location-dot"></i> Plaza de las Flores · Cómo llegar
+                    </a>
                 </div>
             </div>
 
@@ -108,35 +123,42 @@
                     <i class="fa-brands fa-instagram"></i>
                     <span>Instagram</span>
                 </a>
-                <a href="https://www.tiktok.com/" target="_blank" class="social-btn">
-                    <i class="fa-brands fa-tiktok"></i>
-                    <span>TikTok</span>
+                <a href="https://www.facebook.com/IndraStudioFloral" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <span>Facebook</span>
                 </a>
                 <a href="https://indra-studio-floral-web.vercel.app" target="_blank" class="social-btn" style="grid-column: span 2;">
                     <i class="fa-solid fa-globe"></i>
-                    <span>Sitio Web</span>
+                    <span>Sitio Web Oficial</span>
                 </a>
             </div>
 
             <!-- Seasonal Flower / Canva Embed -->
-            <section class="seasonal-card fade-in-up" id="seasonal-section" style="transition-delay: 0.45s; display: block; overflow: hidden; position: relative;">
-                <!-- Etiqueta sobre el embed -->
-                <div style="background: var(--card-bg); padding: 15px 20px; border-bottom: 1px solid var(--border-color); text-align: center;">
-                    <span class="seasonal-badge">Flor de Temporada</span>
+            <!-- 🌸 Flor de Temporada (Canva Dinámico) -->
+            <section class="section fade-in-up" id="season-flower-section" style="margin-top:20px; display: none;">
+                <h2 class="section-title">Flor de Temporada</h2>
+                <div style="position: relative; width: 100%; height: 0; padding-top: 100%; padding-bottom: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); background: var(--card-bg);" id="season-canva-container">
+                    <!-- Canva Iframe Injected by JS -->
                 </div>
-                
-                <!-- Canva Iframe Container -->
-                <div style="position: relative; width: 100%; height: 0; padding-top: 100%; /* Relación de aspecto cuadrada 1:1, puedes cambiar a 141% para vertical */ overflow: hidden; pointer-events: none;">
-                    <iframe 
-                        loading="lazy" 
-                        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0; pointer-events: none;"
-                        src="https://www.canva.com/design/DAHEQZkmnZE/f_EMuXRHZt28GoFaiAk0Xw/view?embed" 
-                        allowfullscreen="allowfullscreen" 
-                        allow="fullscreen">
-                    </iframe>
+                <div style="text-align: center; margin-top: 15px;" id="season-info-container">
+                    <h3 id="season-title-display" style="font-family: var(--font-heading); color: var(--text-main); margin-bottom: 5px;"></h3>
+                    <div style="display:flex; justify-content:center; gap:10px; margin-bottom:8px;">
+                        <span id="season-status-badge" style="font-size:0.7rem; padding: 4px 10px; border-radius: 12px; font-weight:600; text-transform:uppercase;"></span>
+                        <span id="season-price-display" style="font-size:0.8rem; color:var(--text-muted); font-weight:500;"></span>
+                    </div>
+                    <p id="season-note-display" style="font-size: 0.8rem; color: var(--text-muted);"></p>
                 </div>
-                <!-- Canva Watermark / Link oculto -->
-                <a href="https://www.canva.com/" target="_blank" rel="noopener" style="position: absolute; bottom: 5px; right: 5px; font-size: 0.6rem; color: rgba(0,0,0,0.1); text-decoration: none;">Diseñado en Canva</a>
+            </section>
+
+            <!-- ===================== 
+                 CATÁLOGO DINÁMICO (Sincronizado vía Admin)
+                 ===================== -->
+            <section class="section fade-in-up" id="catalog-section" style="margin-top:30px;">
+                <h2 class="section-title">Catálogo Floral</h2>
+                <div class="product-grid" id="productos-dinamicos" style="display: grid; gap: 15px;">
+                    <!-- Productos inyectados por JS -->
+                    <div style="text-align:center; padding: 30px; font-size: 0.85rem; color: var(--text-muted);">Cargando catálogo en vivo...</div>
+                </div>
             </section>
 
             <!-- Services / Expertise -->
@@ -144,8 +166,12 @@
                 <h2>Especialidades</h2>
                 <div class="services-wrapper">
                     <div class="service-item">
-                        <i class="fa-solid fa-leaf"></i>
-                        <span>Bodas y Eventos</span>
+                        <i class="fa-solid fa-champagne-glasses"></i>
+                        <span>Eventos</span>
+                    </div>
+                    <div class="service-item">
+                        <i class="fa-solid fa-heart"></i>
+                        <span>Ramos de Novia</span>
                     </div>
                     <div class="service-item">
                         <i class="fa-solid fa-gift"></i>
@@ -156,6 +182,46 @@
                         <span>Suscripción Floral</span>
                     </div>
                 </div>
+            </section>
+
+            <!-- Suscripción Floral - Redesigned -->
+            <section class="subs-info fade-in-up" style="transition-delay: 0.52s; margin-top: 30px; text-align: center; padding: 28px 20px; background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border-color); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+                <div style="display: inline-flex; align-items: center; gap: 6px; background: rgba(181,155,141,0.12); padding: 5px 14px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--secondary-color); margin-bottom: 16px;">
+                    <i class="fa-solid fa-rotate"></i> Servicio Recurrente
+                </div>
+                <h3 style="font-family: var(--font-heading); margin-bottom: 6px; font-size: 1.5rem;">Flores Frescas Cada Mes</h3>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 22px;">Tu espacio siempre vivo, sin esfuerzo.</p>
+                
+                <!-- 3-Step Visual Flow -->
+                <div style="display: flex; gap: 8px; margin-bottom: 22px;">
+                    <div style="flex: 1; padding: 14px 8px; background: rgba(0,0,0,0.025); border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="width: 36px; height: 36px; margin: 0 auto 8px; border-radius: 50%; background: rgba(181,155,141,0.12); display: flex; align-items: center; justify-content: center; color: var(--secondary-color); font-size: 0.9rem;">
+                            <i class="fa-solid fa-ruler-combined"></i>
+                        </div>
+                        <strong style="font-size: 0.75rem; display: block; margin-bottom: 3px;">1. Eliges</strong>
+                        <span style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.3;">El tamaño ideal para tu espacio</span>
+                    </div>
+                    <div style="flex: 1; padding: 14px 8px; background: rgba(0,0,0,0.025); border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="width: 36px; height: 36px; margin: 0 auto 8px; border-radius: 50%; background: rgba(181,155,141,0.12); display: flex; align-items: center; justify-content: center; color: var(--secondary-color); font-size: 0.9rem;">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <strong style="font-size: 0.75rem; display: block; margin-bottom: 3px;">2. Defines</strong>
+                        <span style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.3;">Tu frecuencia preferida</span>
+                    </div>
+                    <div style="flex: 1; padding: 14px 8px; background: rgba(0,0,0,0.025); border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="width: 36px; height: 36px; margin: 0 auto 8px; border-radius: 50%; background: rgba(181,155,141,0.12); display: flex; align-items: center; justify-content: center; color: var(--secondary-color); font-size: 0.9rem;">
+                            <i class="fa-solid fa-truck-fast"></i>
+                        </div>
+                        <strong style="font-size: 0.75rem; display: block; margin-bottom: 3px;">3. Recibes</strong>
+                        <span style="font-size: 0.68rem; color: var(--text-muted); line-height: 1.3;">Llegan a tu puerta</span>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.82rem; font-style: italic; color: var(--text-muted); margin-bottom: 18px; line-height: 1.5;">Sin compromisos · Cancelá cuando quieras</p>
+                
+                <button class="btn btn-save" onclick="window.open('https://wa.me/522282393575?text=Hola%2C%20me%20interesa%20la%20suscripci%C3%B3n%20mensual%20de%20flores.%20%F0%9F%8C%B7', '_blank')" style="font-size: 0.85rem; padding: 13px 15px; width: 100%; border-radius: 12px;">
+                    <i class="fa-brands fa-whatsapp"></i> Quiero mi suscripción
+                </button>
             </section>
 
             <!-- Testimonials Carousel -->
@@ -177,34 +243,68 @@
                 </div>
             </section>
 
-            <!-- Gallery -->
+            <!-- Full Portfolio Gallery - All 42 Photos -->
             <section class="gallery-section fade-in-up" style="transition-delay: 0.6s;">
                 <h2>Portafolio</h2>
-                <div class="masonry-gallery">
-                    <div class="gallery-item interactive-img" data-src="Assets/gallery1.png">
-                        <img src="Assets/gallery1.png" alt="Diseño Floral 1" loading="lazy">
-                    </div>
-                    <div class="gallery-item interactive-img" data-src="Assets/gallery2.png">
-                        <img src="Assets/gallery2.png" alt="Diseño Floral 2" loading="lazy">
-                    </div>
-                    <div class="gallery-item interactive-img" data-src="Assets/bg.png">
-                        <img src="Assets/bg.png" alt="Diseño Floral 3" loading="lazy">
-                    </div>
+                <p style="text-align: center; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 15px;"><i class="fa-solid fa-hand-pointer" style="margin-right: 4px;"></i>Desliza para explorar</p>
+
+                <!-- Masonry Gallery -->
+                <div class="gallery-masonry">
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/PORTADA.jpeg"><img src="Assets/INDRA FOTOS/PORTADA.jpeg" alt="Portafolio Indra 1" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos1.jpeg"><img src="Assets/INDRA FOTOS/ramos1.jpeg" alt="Portafolio Indra 2" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos2.jpeg"><img src="Assets/INDRA FOTOS/ramos2.jpeg" alt="Portafolio Indra 3" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos3.jpeg"><img src="Assets/INDRA FOTOS/ramos3.jpeg" alt="Portafolio Indra 4" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos4.jpeg"><img src="Assets/INDRA FOTOS/ramos4.jpeg" alt="Portafolio Indra 5" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos5.jpeg"><img src="Assets/INDRA FOTOS/ramos5.jpeg" alt="Portafolio Indra 6" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos6.jpeg"><img src="Assets/INDRA FOTOS/ramos6.jpeg" alt="Portafolio Indra 7" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos7.jpeg"><img src="Assets/INDRA FOTOS/ramos7.jpeg" alt="Portafolio Indra 8" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos8.jpeg"><img src="Assets/INDRA FOTOS/ramos8.jpeg" alt="Portafolio Indra 9" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos9.jpeg"><img src="Assets/INDRA FOTOS/ramos9.jpeg" alt="Portafolio Indra 10" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos10.jpeg"><img src="Assets/INDRA FOTOS/ramos10.jpeg" alt="Portafolio Indra 11" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos11.jpeg"><img src="Assets/INDRA FOTOS/ramos11.jpeg" alt="Portafolio Indra 12" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos12.jpeg"><img src="Assets/INDRA FOTOS/ramos12.jpeg" alt="Portafolio Indra 13" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos13.jpeg"><img src="Assets/INDRA FOTOS/ramos13.jpeg" alt="Portafolio Indra 14" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos14.jpeg"><img src="Assets/INDRA FOTOS/ramos14.jpeg" alt="Portafolio Indra 15" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos15.jpeg"><img src="Assets/INDRA FOTOS/ramos15.jpeg" alt="Portafolio Indra 16" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos16.jpeg"><img src="Assets/INDRA FOTOS/ramos16.jpeg" alt="Portafolio Indra 17" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos17.jpeg"><img src="Assets/INDRA FOTOS/ramos17.jpeg" alt="Portafolio Indra 18" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos18.jpeg"><img src="Assets/INDRA FOTOS/ramos18.jpeg" alt="Portafolio Indra 19" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos19.jpeg"><img src="Assets/INDRA FOTOS/ramos19.jpeg" alt="Portafolio Indra 20" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos20.jpeg"><img src="Assets/INDRA FOTOS/ramos20.jpeg" alt="Portafolio Indra 21" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos21.jpeg"><img src="Assets/INDRA FOTOS/ramos21.jpeg" alt="Portafolio Indra 22" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos22.jpeg"><img src="Assets/INDRA FOTOS/ramos22.jpeg" alt="Portafolio Indra 23" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos23.jpeg"><img src="Assets/INDRA FOTOS/ramos23.jpeg" alt="Portafolio Indra 24" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos24.jpeg"><img src="Assets/INDRA FOTOS/ramos24.jpeg" alt="Portafolio Indra 25" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos25.jpeg"><img src="Assets/INDRA FOTOS/ramos25.jpeg" alt="Portafolio Indra 26" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos26.jpeg"><img src="Assets/INDRA FOTOS/ramos26.jpeg" alt="Portafolio Indra 27" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos27.jpeg"><img src="Assets/INDRA FOTOS/ramos27.jpeg" alt="Portafolio Indra 28" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos28.jpeg"><img src="Assets/INDRA FOTOS/ramos28.jpeg" alt="Portafolio Indra 29" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos29.jpeg"><img src="Assets/INDRA FOTOS/ramos29.jpeg" alt="Portafolio Indra 30" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos30.jpeg"><img src="Assets/INDRA FOTOS/ramos30.jpeg" alt="Portafolio Indra 31" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos31.jpeg"><img src="Assets/INDRA FOTOS/ramos31.jpeg" alt="Portafolio Indra 32" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos32.jpeg"><img src="Assets/INDRA FOTOS/ramos32.jpeg" alt="Portafolio Indra 33" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos33.jpeg"><img src="Assets/INDRA FOTOS/ramos33.jpeg" alt="Portafolio Indra 34" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos34.jpeg"><img src="Assets/INDRA FOTOS/ramos34.jpeg" alt="Portafolio Indra 35" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos35.jpeg"><img src="Assets/INDRA FOTOS/ramos35.jpeg" alt="Portafolio Indra 36" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos36.jpeg"><img src="Assets/INDRA FOTOS/ramos36.jpeg" alt="Portafolio Indra 37" loading="lazy"></div>
+                    <div class="gallery-masonry-item interactive-img" data-src="Assets/INDRA FOTOS/ramos37.jpeg"><img src="Assets/INDRA FOTOS/ramos37.jpeg" alt="Portafolio Indra 38" loading="lazy"></div>
                 </div>
             </section>
         </main>
-        
-        <footer>
-            <p>Diseñado con ♥ por Indra Studio Floral</p>
-        </footer>
+        </main>
     </div>
 
     <!-- Modals -->
 
     <!-- Image Viewer Modal -->
-    <div id="image-modal" class="modal">
+    <div id="image-modal" class="modal view-modal-wrapper">
         <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modal-img">
+        <div class="modal-content-container">
+            <img class="modal-content" id="modal-img">
+            <a id="modal-wa-btn" href="#" target="_blank" class="action-btn wa-modal-btn" style="margin-top: 20px; max-width: 300px; display: inline-flex; align-items: center; justify-content: center;">
+                <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Me interesa algo así
+            </a>
+        </div>
     </div>
 
     <!-- QR Code Modal -->
@@ -256,25 +356,39 @@
         </div>
     </div>
 
+<!-- Promo Modal -->
+<div id="promo-modal" class="modal" style="display: none; position: fixed; inset: 0; background: rgba(26, 31, 38, 0.85); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); z-index: 999999; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.4s ease;">
+    <div class="modal-content" style="max-width: 340px; width: 100%; text-align: center; position: relative; padding: 2.5rem 1.8rem; border-radius: 12px; background: var(--modal-bg); border: 1px solid var(--border-color); box-shadow: var(--shadow-soft); transform: translateY(20px); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+        
+        <div style="position: absolute; top: -20px; left: 50%; transform: translateX(-50%); padding: 8px 15px; border-radius: 20px; background: var(--secondary-color); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+            <i class="fas fa-star" style="margin-right:4px;"></i> Especial
+        </div>
+
+        <button onclick="closePromoModal()" style="position: absolute; right: 10px; top: 10px; background: none; border: none; color: var(--text-muted); font-size: 1.2rem; cursor: pointer; padding: 5px;"><i class="fas fa-times"></i></button>
+
+        <h2 id="promo-title-display" style="color: var(--text-main); margin-top: 1rem; margin-bottom: 0.8rem; font-family: var(--font-heading); font-size: 1.4rem; line-height: 1.3; letter-spacing: 0.5px;"></h2>
+        
+        <p id="promo-desc-display" style="opacity: 0.8; line-height: 1.5; font-size: 0.9rem; margin-bottom: 2rem; color: var(--text-main);"></p>
+        
+        <button onclick="closePromoModal()" class="btn btn-save" style="width: 100%; border-radius: 8px; letter-spacing: 1px;">Entendido</button>
+    </div>
+</div>
+
+<script>
+    function closePromoModal() {
+        const modal = document.getElementById('promo-modal');
+        modal.style.opacity = '0';
+        modal.querySelector('.modal-content').style.transform = 'translateY(20px)';
+        setTimeout(() => modal.style.display = 'none', 400);
+    }
+</script>
+
     <script src="script.js"></script>
 
 
 
 
 
-</div>
-
-
-
-</div>
-
-
-
-</div>
-
-
-
-</div>
 
 
 <!-- TREZE SIGNATURE V4 -->

@@ -135,7 +135,7 @@
         <p id="pin-error" style="color:#ef4444;font-size:0.9rem;display:none;font-weight:600;">PIN incorrecto</p>
     </div>
     <script>
-    const PIN_HASH = '158a323a7ba44870f23d96f1516dd70aa48e9a72db4ebb026b0a89e212a208ab';
+    const PIN_HASH = '1cfafff6d51a03662b85b93dc3417f51687034ba9a46682f5328257eff7133ed'; // 1313
     async function hashPin(pin) {
         const encoder = new TextEncoder();
         const data = encoder.encode(pin);
@@ -267,8 +267,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Precio Desde ($MXN)</label>
-                        <input type="number" id="season-price" placeholder="350">
+                        <label>Precio o Etiqueta (Ej: 350, Cotizar)</label>
+                        <input type="text" id="season-price" placeholder="Ej: 350 o Cotizar">
                     </div>
                 </div>
                 <div class="form-group">
@@ -392,8 +392,8 @@
             
             <div class="grid-2">
                 <div class="form-group">
-                    <label>Precio Desde ($MXN)</label>
-                    <input type="number" id="p-price" placeholder="850">
+                    <label>Precio o Etiqueta (Ej: 850, Cotizar)</label>
+                    <input type="text" id="p-price" placeholder="Ej: 850 o Cotizar">
                 </div>
                 <div class="form-group">
                     <label>Disponibilidad</label>

@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Save Contact (vCard generation)
     window.downloadVCard = function() {
-        const vcardData = `BEGIN:VCARD\nVERSION:3.0\nN:Indra Studio;Floral;;;\nFN:Indra Studio Floral\nORG:Indra Studio Floral\nTITLE:Diseño Floral de Autor\nTEL;TYPE=CELL:522282393575\nURL:https://indra-studio-floral-web.vercel.app\nNOTE:Creamos experiencias botánicas memorables y arreglos florales curados.\nEND:VCARD`;
+        const vcardData = `BEGIN:VCARD\nVERSION:3.0\nN:Indra Studio;Floral;;;\nFN:Indra Studio Floral\nORG:Indra Studio Floral\nTITLE:Café entre flores\nTEL;TYPE=CELL:522293706307\nURL:https://indra-studio-floral-web.vercel.app\nNOTE:Café entre flores. Creamos experiencias botánicas memorables y arreglos florales curados.\nEND:VCARD`;
         const blob = new Blob([vcardData], { type: 'text/vcard' });
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Build the WhatsApp message payload with the public Vercel URL
             const publicUrl = "https://indra-studio-floral-web.vercel.app/" + encodeURI(src);
             const waMessage = "Hola! Quisiera cotizar un arreglo/detalle tomando esta foto como referencia:\n" + publicUrl;
-            modalWaBtn.href = "https://wa.me/522282393575?text=" + encodeURIComponent(waMessage);
+            modalWaBtn.href = "https://wa.me/522293706307?text=" + encodeURIComponent(waMessage);
 
             openModal('image-modal');
         });
@@ -179,12 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const type = document.getElementById('event-type').value;
         const date = document.getElementById('event-date').value;
-        const budget = document.getElementById('event-budget').value;
         const details = document.getElementById('event-details').value;
 
-        const message = `¡Hola Indra Studio Floral! 🌿 Me gustaría cotizar un servicio:\n\n*Tipo:* ${type}\n*Fecha:* ${date}\n*Presupuesto Estimado:* ${budget}\n*Detalles:* ${details || 'Sin detalles adicionales'}`;
+        const message = `¡Hola Indra Studio Floral! 🌿 Me gustaría solicitar una cotización real (sujeta a temporada/existencia):\n\n*Tipo:* ${type}\n*Fecha:* ${date}\n*Detalles:* ${details || 'Sin detalles adicionales'}`;
         
-        const waUrl = `https://wa.me/522282393575?text=${encodeURIComponent(message)}`;
+        const waUrl = `https://wa.me/522293706307?text=${encodeURIComponent(message)}`;
         window.open(waUrl, '_blank');
         closeModal();
     });
@@ -196,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 await navigator.share({
                     title: 'Indra Studio Floral',
-                    text: 'Diseño Floral de Autor',
+                    text: 'Café entre flores',
                     url: window.location.href,
                 });
             } catch (err) {
@@ -306,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if(sfSection && c.seasonCanvaUrl && c.seasonName) {
                         sfSection.style.display = 'block';
                         document.getElementById('season-title-display').textContent = c.seasonName;
-                        if(c.seasonPrice) document.getElementById('season-price-display').textContent = `Desde $${c.seasonPrice} MXN`;
+                        if(c.seasonPrice) document.getElementById('season-price-display').textContent = `Sujeto a Cotización`;
                         if(c.seasonNote) document.getElementById('season-note-display').textContent = c.seasonNote;
                         
                         const sBadge = document.getElementById('season-status-badge');
@@ -351,9 +350,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                     <h3>${p.nombre}</h3>
                                     <div class="cat">${p.categoria || 'Catálogo'} &nbsp;·&nbsp; <span class="${p.status === 'AGOTADO' ? 'text-red' : 'text-green'}" style="color:${p.status === 'AGOTADO' ? '#ef4444' : '#10b981'}; font-weight:600;">${p.status || 'Disponible'}</span></div>
                                     <p>${p.desc || ''}</p>
-                                    <div class="product-price-web">Desde $${p.precio} MXN</div>
                                 </div>
-                                <a href="https://wa.me/522282393575?text=Hola,%20me%20interesa%20el%20producto:%20${encodeURIComponent(p.nombre)}" target="_blank" class="btn-wa">
+                                <a href="https://wa.me/522293706307?text=Hola,%20me%20interesa%20cotizar%20el%20producto:%20${encodeURIComponent(p.nombre)}" target="_blank" class="btn-wa">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </a>
                             </div>

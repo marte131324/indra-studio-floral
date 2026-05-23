@@ -225,7 +225,7 @@ function renderProductos() {
                 <div>
                     <div class="product-title">${p.nombre}</div>
                     <div class="product-cat">${p.categoria || ''}</div>
-                    <div class="product-price">Desde $${p.precio} MXN</div>
+                    <div class="product-price">${isNaN(parseFloat(p.precio)) ? (p.precio || 'Sujeto a cotización') : 'Desde $' + p.precio + ' MXN'}</div>
                 </div>
             </div>
             <div style="display:flex; align-items:center; gap:10px;">
